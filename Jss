@@ -1,0 +1,52 @@
+const chatBox = document.getElementById("chatBox");
+const input = document.getElementById("userInput");
+const themeBtn = document.getElementById("themeBtn");
+
+// Send message
+function sendMessage() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  addMessage(text, "user");
+  input.value = "";
+
+  // typing effect
+  setTimeout(() => {
+    botReply(text);
+  }, 600);
+}
+
+// Add message to chat
+function addMessage(text, type) {
+  const msg = document.createElement("div");
+  msg.classList.add("message", type);
+  msg.innerText = text;
+  chatBox.appendChild(msg);
+
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Fake bot response (replace with AI API later)
+function botReply(userText) {
+  let reply = "I didn't understand that.";
+
+  if (userText.toLowerCase().includes("hello")) {
+    reply = "Hello! How can I help you?";
+  } else if (userText.toLowerCase().includes("name")) {
+    reply = "I'm your AI chatbot 🤖";
+  } else if (userText.toLowerCase().includes("help")) {
+    reply = "You can ask me anything!";
+  }
+
+  addMessage(reply, "bot");
+}
+
+// Enter key support
+input.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") sendMessage();
+});
+
+// Dark mode toggle
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
