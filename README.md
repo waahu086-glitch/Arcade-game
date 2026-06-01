@@ -5,22 +5,23 @@ Game website
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Chatbot</title>
+  <title>AI Chatbot Pro</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body>
 
-<div class="app">
+<div class="container">
 
   <header>
-    <h1>AI Chatbot</h1>
-    <button id="themeBtn">🌙</button>
+    <h2>🤖 AI Chatbot Pro</h2>
+    <button id="themeToggle">🌙</button>
   </header>
 
-  <div id="chatBox" class="chat-box"></div>
+  <div id="chat" class="chat"></div>
 
-  <div class="input-area">
-    <input id="userInput" type="text" placeholder="Type a message..." />
+  <div class="input-box">
+    <input id="input" type="text" placeholder="Ask something..." />
     <button onclick="sendMessage()">Send</button>
   </div>
 
